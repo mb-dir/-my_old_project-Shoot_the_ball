@@ -4,7 +4,8 @@
   "description": "It's small and simply game where you have to 'kill' a ball",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --config ./config/webpack.configDev.js",
+    "webpackDev": "webpack --config ./config/webpack.configDev.js"
   },
   "author": "",
   "license": "ISC",

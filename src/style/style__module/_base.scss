@@ -1,0 +1,14 @@
+@import './var';
+
+*, *::after *::before{
+    box-sizing: border-box;
+}
+body, html{
+    font-size: $primary-font-size;
+    font-family: 'Lato', sans-serif;
+    background-color: $primary-dark-color;
+}
+.app{
+    width: 1200px;
+    margin: 0 auto;
+}

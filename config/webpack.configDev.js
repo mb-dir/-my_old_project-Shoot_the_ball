@@ -24,6 +24,13 @@ module.exports = {
                     'css-loader',
                     'sass-loader',
                 ]
+            },
+            {
+                test: /\.svg$/i,
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                },
             }
         ]
     },

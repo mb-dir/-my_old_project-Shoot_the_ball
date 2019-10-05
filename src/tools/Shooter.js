@@ -9,7 +9,7 @@ const Shooter = function(){
     this.init();
 }
 Shooter.prototype.init = function(){
-    this.crosshair();//uwzględnij w commicie!
+    this.crosshair();
 }
 
 //Crosshair

@@ -5,9 +5,19 @@ const Shooter = function(){
     this.btnStart = document.querySelector('#start');
     this.btnStop = document.querySelector('#stop');
     this.score = document.querySelector('#score');
+
+    this.init();
+}
+Shooter.prototype.init = function(){
+    this.crosshair();//uwzględnij w commicie!
 }
 
-
+//Crosshair
+Shooter.prototype.crosshair = function(){
+    this.gameScreen.addEventListener('mousemove', ()=>{
+        
+    });
+}
 
 
 export default Shooter; 

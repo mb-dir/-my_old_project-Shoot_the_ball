@@ -3,4 +3,3 @@ import Shooter from './tools/Shooter.js';
 
 const shooter = new Shooter();
 
-shooter.test();

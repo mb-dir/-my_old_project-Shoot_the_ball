@@ -94,7 +94,18 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style/style.scss */ \"./src/style/style.scss\");\n/* harmony import */ var _style_style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_style_scss__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\n\n//# sourceURL=webpack:///./src/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style/style.scss */ \"./src/style/style.scss\");\n/* harmony import */ var _style_style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_style_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _tools_Shooter_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tools/Shooter.js */ \"./src/tools/Shooter.js\");\n\r\n\r\n\r\nconst shooter = new _tools_Shooter_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\r\n\r\nshooter.test();\n\n//# sourceURL=webpack:///./src/app.js?");
+
+/***/ }),
+
+/***/ "./src/assets/img/ball.svg":
+/*!*********************************!*\
+  !*** ./src/assets/img/ball.svg ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"ball.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/ball.svg?");
 
 /***/ }),
 
@@ -106,6 +117,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/style/style.scss?");
+
+/***/ }),
+
+/***/ "./src/tools/Shooter.js":
+/*!******************************!*\
+  !*** ./src/tools/Shooter.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_img_ball_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/img/ball.svg */ \"./src/assets/img/ball.svg\");\n/* harmony import */ var _assets_img_ball_svg__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_assets_img_ball_svg__WEBPACK_IMPORTED_MODULE_0__);\n\r\nconst Shooter = function(){\r\n}\r\n\r\nShooter.prototype.test = function (){\r\n    const img = new Image();\r\n    img.src = _assets_img_ball_svg__WEBPACK_IMPORTED_MODULE_0___default.a;\r\n    document.body.appendChild(img);\r\n}\r\n\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (Shooter); \n\n//# sourceURL=webpack:///./src/tools/Shooter.js?");
 
 /***/ })
 

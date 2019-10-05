@@ -1,12 +1,12 @@
 import ball from '../assets/img/ball.svg';
 const Shooter = function(){
+    this.gameScreen = document.querySelector('.game-screen');
+    this.ball = ball;
+    this.btnStart = document.querySelector('#start');
+    this.btnStop = document.querySelector('#stop');
+    this.score = document.querySelector('#score');
 }
 
-Shooter.prototype.test = function (){
-    const img = new Image();
-    img.src = ball;
-    document.body.appendChild(img);
-}
 
 
 

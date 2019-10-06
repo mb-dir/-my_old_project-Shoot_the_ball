@@ -10,6 +10,7 @@ const Shooter = function(){
 }
 Shooter.prototype.init = function(){
     this.crosshair();
+    this.addBalls();
 }
 
 //Crosshair
@@ -25,5 +26,15 @@ Shooter.prototype.crosshair = function(){
     });
 }
 
+
+//Add moving balls
+
+Shooter.prototype.addBalls = function(){
+    const ballImg = new Image();
+    ballImg.src = this.ball;
+    ballImg.classList.add('ball');
+
+    this.gameScreen.appendChild(ballImg);
+}
 
 export default Shooter; 

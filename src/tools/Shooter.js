@@ -1,7 +1,6 @@
-import ball from '../assets/img/ball.png';
 const Shooter = function(){
     this.gameScreen = document.querySelector('.game-screen');
-    this.ball = ball;
+    this.ball = document.createElement('div');
     this.btnStart = document.querySelector('#start');
     this.btnStop = document.querySelector('#stop');
     this.score = document.querySelector('#score');
@@ -30,15 +29,8 @@ Shooter.prototype.crosshair = function(){
 //Add moving balls
 
 Shooter.prototype.addBalls = function(){
-    const ballWrap = document.createElement('div');
-    const ballImg = new Image();
-    ballImg.src = this.ball;
-    ballImg.classList.add('ball');
-
-    ballWrap.style.zIndex = '0';
-    ballWrap.appendChild(ballImg)
-
-    this.gameScreen.appendChild(ballWrap);
+    this.ball.classList.add('ball');
+    this.gameScreen.appendChild(this.ball);
 
     
     let ballRespX = Math.random();
@@ -47,7 +39,8 @@ Shooter.prototype.addBalls = function(){
         ballRespX -= 0.09;
     }
     console.log(ballRespX)
-    ballImg.style.setProperty('transform', `translateX(${this.gameScreen.offsetWidth * ballRespX}px)`)
+    this.ball.style.setProperty('transform', `translateX(${this.gameScreen.offsetWidth * ballRespX}px)`)
+
 }
 
 export default Shooter; 

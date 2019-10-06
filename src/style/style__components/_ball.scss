@@ -1,4 +1,7 @@
 .ball{
     width: 90px;
     height: 90px;
+    background-color: orange;
+    border-radius: 50%;
+    z-index: -1;
 }

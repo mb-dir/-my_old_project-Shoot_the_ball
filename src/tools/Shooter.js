@@ -14,8 +14,14 @@ Shooter.prototype.init = function(){
 
 //Crosshair
 Shooter.prototype.crosshair = function(){
-    this.gameScreen.addEventListener('mousemove', ()=>{
-        
+
+    const crosshair = document.querySelector('.crosshair');
+
+    this.gameScreen.addEventListener('mousemove', (e)=>{
+        const positionX = e.pageX - this.gameScreen.offsetLeft - (crosshair.offsetWidth / 2);
+        const positionY = e.pageY - this.gameScreen.offsetTop - (crosshair.offsetHeight / 2);
+
+        crosshair.style.setProperty('transform', `translate(${positionX}px, ${positionY}px)`);
     });
 }
 

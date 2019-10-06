@@ -35,6 +35,15 @@ Shooter.prototype.addBalls = function(){
     ballImg.classList.add('ball');
 
     this.gameScreen.appendChild(ballImg);
+
+    
+    let ballRespX = Math.random();
+    //Ball never will apear pose game screen
+    if (ballRespX > 0.92){
+        ballRespX -= 0.09;
+    }
+    console.log(ballRespX)
+    ballImg.style.setProperty('transform', `translateX(${this.gameScreen.offsetWidth * ballRespX}px)`)
 }
 
 export default Shooter; 

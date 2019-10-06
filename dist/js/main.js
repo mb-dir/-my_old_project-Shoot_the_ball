@@ -98,14 +98,14 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
 
 /***/ }),
 
-/***/ "./src/assets/img/ball.svg":
+/***/ "./src/assets/img/ball.png":
 /*!*********************************!*\
-  !*** ./src/assets/img/ball.svg ***!
+  !*** ./src/assets/img/ball.png ***!
   \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"ball.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/ball.svg?");
+eval("module.exports = __webpack_require__.p + \"ball.png\";\n\n//# sourceURL=webpack:///./src/assets/img/ball.png?");
 
 /***/ }),
 
@@ -128,7 +128,7 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_img_ball_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/img/ball.svg */ \"./src/assets/img/ball.svg\");\n/* harmony import */ var _assets_img_ball_svg__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_assets_img_ball_svg__WEBPACK_IMPORTED_MODULE_0__);\n\r\nconst Shooter = function(){\r\n    this.gameScreen = document.querySelector('.game-screen');\r\n    this.ball = _assets_img_ball_svg__WEBPACK_IMPORTED_MODULE_0___default.a;\r\n    this.btnStart = document.querySelector('#start');\r\n    this.btnStop = document.querySelector('#stop');\r\n    this.score = document.querySelector('#score');\r\n\r\n    this.init();\r\n}\r\nShooter.prototype.init = function(){\r\n    this.crosshair();\r\n    this.addBalls();\r\n}\r\n\r\n//Crosshair\r\nShooter.prototype.crosshair = function(){\r\n\r\n    const crosshair = document.querySelector('.crosshair');\r\n\r\n    this.gameScreen.addEventListener('mousemove', (e)=>{\r\n        const positionX = e.pageX - this.gameScreen.offsetLeft - (crosshair.offsetWidth / 2);\r\n        const positionY = e.pageY - this.gameScreen.offsetTop - (crosshair.offsetHeight / 2);\r\n\r\n        crosshair.style.setProperty('transform', `translate(${positionX}px, ${positionY}px)`);\r\n    });\r\n}\r\n\r\n\r\n//Add moving balls\r\n\r\nShooter.prototype.addBalls = function(){\r\n    const ballImg = new Image();\r\n    ballImg.src = this.ball;\r\n    ballImg.classList.add('ball');\r\n\r\n    this.gameScreen.appendChild(ballImg);\r\n\r\n    \r\n    let ballRespX = Math.random();\r\n    //Ball never will apear pose game screen\r\n    if (ballRespX > 0.92){\r\n        ballRespX -= 0.09;\r\n    }\r\n    console.log(ballRespX)\r\n    ballImg.style.setProperty('transform', `translateX(${this.gameScreen.offsetWidth * ballRespX}px)`)\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (Shooter); \n\n//# sourceURL=webpack:///./src/tools/Shooter.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_img_ball_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/img/ball.png */ \"./src/assets/img/ball.png\");\n/* harmony import */ var _assets_img_ball_png__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_assets_img_ball_png__WEBPACK_IMPORTED_MODULE_0__);\n\r\nconst Shooter = function(){\r\n    this.gameScreen = document.querySelector('.game-screen');\r\n    this.ball = _assets_img_ball_png__WEBPACK_IMPORTED_MODULE_0___default.a;\r\n    this.btnStart = document.querySelector('#start');\r\n    this.btnStop = document.querySelector('#stop');\r\n    this.score = document.querySelector('#score');\r\n\r\n    this.init();\r\n}\r\nShooter.prototype.init = function(){\r\n    this.crosshair();\r\n    this.addBalls();\r\n}\r\n\r\n//Crosshair\r\nShooter.prototype.crosshair = function(){\r\n\r\n    const crosshair = document.querySelector('.crosshair');\r\n\r\n    this.gameScreen.addEventListener('mousemove', (e)=>{\r\n        const positionX = e.pageX - this.gameScreen.offsetLeft - (crosshair.offsetWidth / 2);\r\n        const positionY = e.pageY - this.gameScreen.offsetTop - (crosshair.offsetHeight / 2);\r\n\r\n        crosshair.style.setProperty('transform', `translate(${positionX}px, ${positionY}px)`);\r\n    });\r\n}\r\n\r\n\r\n//Add moving balls\r\n\r\nShooter.prototype.addBalls = function(){\r\n    const ballWrap = document.createElement('div');\r\n    const ballImg = new Image();\r\n    ballImg.src = this.ball;\r\n    ballImg.classList.add('ball');\r\n\r\n    ballWrap.style.zIndex = '0';\r\n    ballWrap.appendChild(ballImg)\r\n\r\n    this.gameScreen.appendChild(ballWrap);\r\n\r\n    \r\n    let ballRespX = Math.random();\r\n    //Ball never will apear pose game screen\r\n    if (ballRespX > 0.92){\r\n        ballRespX -= 0.09;\r\n    }\r\n    console.log(ballRespX)\r\n    ballImg.style.setProperty('transform', `translateX(${this.gameScreen.offsetWidth * ballRespX}px)`)\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (Shooter); \n\n//# sourceURL=webpack:///./src/tools/Shooter.js?");
 
 /***/ })
 

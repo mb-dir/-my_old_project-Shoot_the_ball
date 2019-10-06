@@ -1,4 +1,4 @@
-import ball from '../assets/img/ball.svg';
+import ball from '../assets/img/ball.png';
 const Shooter = function(){
     this.gameScreen = document.querySelector('.game-screen');
     this.ball = ball;
@@ -30,11 +30,15 @@ Shooter.prototype.crosshair = function(){
 //Add moving balls
 
 Shooter.prototype.addBalls = function(){
+    const ballWrap = document.createElement('div');
     const ballImg = new Image();
     ballImg.src = this.ball;
     ballImg.classList.add('ball');
 
-    this.gameScreen.appendChild(ballImg);
+    ballWrap.style.zIndex = '0';
+    ballWrap.appendChild(ballImg)
+
+    this.gameScreen.appendChild(ballWrap);
 
     
     let ballRespX = Math.random();

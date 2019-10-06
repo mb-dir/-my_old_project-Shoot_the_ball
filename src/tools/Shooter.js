@@ -4,24 +4,24 @@ const Shooter = function(){
     this.btnStart = document.querySelector('#start');
     this.btnStop = document.querySelector('#stop');
     this.score = document.querySelector('#score');
+    this.cross = document.querySelector('.crosshair');
 
     this.init();
 }
 Shooter.prototype.init = function(){
     this.crosshair();
     this.addBalls();
+    this.ballMove();
 }
 
 //Crosshair
 Shooter.prototype.crosshair = function(){
 
-    const crosshair = document.querySelector('.crosshair');
-
     this.gameScreen.addEventListener('mousemove', (e)=>{
-        const positionX = e.pageX - this.gameScreen.offsetLeft - (crosshair.offsetWidth / 2);
-        const positionY = e.pageY - this.gameScreen.offsetTop - (crosshair.offsetHeight / 2);
+        const positionX = e.pageX - this.gameScreen.offsetLeft - (this.cross.offsetWidth / 2);
+        const positionY = e.pageY - this.gameScreen.offsetTop - (this.cross.offsetHeight / 2);
 
-        crosshair.style.setProperty('transform', `translate(${positionX}px, ${positionY}px)`);
+        this.cross.style.setProperty('transform', `translate(${positionX}px, ${positionY}px)`);
     });
 }
 
@@ -39,8 +39,9 @@ Shooter.prototype.addBalls = function(){
         ballRespX -= 0.09;
     }
     console.log(ballRespX)
-    this.ball.style.setProperty('transform', `translateX(${this.gameScreen.offsetWidth * ballRespX}px)`)
+    this.ball.style.setProperty('transform', `translate(${this.gameScreen.offsetWidth * ballRespX}px, -${this.cross.offsetHeight * 2}px)`);
 
 }
+
 
 export default Shooter; 

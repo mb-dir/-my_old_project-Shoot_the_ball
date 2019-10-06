@@ -42,6 +42,10 @@ Shooter.prototype.addBalls = function(){
     this.ball.style.setProperty('transform', `translate(${this.gameScreen.offsetWidth * ballRespX}px, -${this.cross.offsetHeight * 2}px)`);
 
 }
+//Move ball
 
+Shooter.prototype.ballMove = function () {
+    
+}
 
 export default Shooter; 

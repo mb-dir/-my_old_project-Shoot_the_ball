@@ -40,7 +40,6 @@ Shooter.prototype.addBalls = function(){
         if (ballRespX > 0.92) {
             ballRespX -= 0.09;
         }
-        console.log(ballRespX)
         this.ball.style.setProperty('transform', `translateX(${this.gameScreen.offsetWidth * ballRespX}px)`);
 
         this.ballMove(ballRespX)
@@ -64,7 +63,6 @@ Shooter.prototype.ballMove = function (ballRespX) {
         iterations: 1,
 
     });
-    console.log(ballRespX)
 }
 
 //Method responsible for behavior of application when we try to shoot the ball

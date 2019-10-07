@@ -32,15 +32,17 @@ Shooter.prototype.addBalls = function(){
     this.gameScreen.appendChild(this.ball);
 
     
-    let ballRespX = Math.random();
-    //Ball never will apear pose game screen
-    if (ballRespX > 0.92){
-        ballRespX -= 0.09;
-    }
-    console.log(ballRespX)
-    this.ball.style.setProperty('transform', `translate(${this.gameScreen.offsetWidth * ballRespX}px, -${this.cross.offsetHeight * 2}px)`);
+    setInterval(()=>{
+        let ballRespX = Math.random();
+        //Ball never will apear pose game screen
+        if (ballRespX > 0.92) {
+            ballRespX -= 0.09;
+        }
+        console.log(ballRespX)
+        this.ball.style.setProperty('transform', `translate(${this.gameScreen.offsetWidth * ballRespX}px, -${this.cross.offsetHeight * 2}px)`);
 
-    this.ballMove(ballRespX)
+        this.ballMove(ballRespX)
+    },1000)
 }
 //Move ball
 
@@ -55,7 +57,7 @@ Shooter.prototype.ballMove = function (ballRespX) {
         }
     ], {
         // timing options
-        duration: 1800,
+        duration: 1000,
         iterations: 1,
 
     });

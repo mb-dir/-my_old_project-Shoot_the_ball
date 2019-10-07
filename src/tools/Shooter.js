@@ -29,6 +29,7 @@ Shooter.prototype.crosshair = function(){
 
 Shooter.prototype.addBalls = function(){
     this.ball.classList.add('ball');
+    this.ball.style.setProperty('transform', `translateY(-${this.cross.offsetHeight * 2}px)`);
     this.gameScreen.appendChild(this.ball);
 
     
@@ -39,7 +40,7 @@ Shooter.prototype.addBalls = function(){
             ballRespX -= 0.09;
         }
         console.log(ballRespX)
-        this.ball.style.setProperty('transform', `translate(${this.gameScreen.offsetWidth * ballRespX}px, -${this.cross.offsetHeight * 2}px)`);
+        this.ball.style.setProperty('transform', `translateX(${this.gameScreen.offsetWidth * ballRespX}px)`);
 
         this.ballMove(ballRespX)
     },1000)

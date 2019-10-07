@@ -11,7 +11,6 @@ const Shooter = function(){
 Shooter.prototype.init = function(){
     this.crosshair();
     this.addBalls();
-    this.ballMove();
 }
 
 //Crosshair
@@ -41,11 +40,26 @@ Shooter.prototype.addBalls = function(){
     console.log(ballRespX)
     this.ball.style.setProperty('transform', `translate(${this.gameScreen.offsetWidth * ballRespX}px, -${this.cross.offsetHeight * 2}px)`);
 
+    this.ballMove(ballRespX)
 }
 //Move ball
 
-Shooter.prototype.ballMove = function () {
-    
+Shooter.prototype.ballMove = function (ballRespX) {
+    this.ball.animate([
+        // keyframes
+        { 
+            transform: `translate(${this.gameScreen.offsetWidth * ballRespX}px, -${this.cross.offsetHeight * 2}px)`
+        },
+        { 
+            transform: `translate(${this.gameScreen.offsetWidth * ballRespX}px, ${this.gameScreen.offsetHeight}px)`
+        }
+    ], {
+        // timing options
+        duration: 1800,
+        iterations: 1,
+
+    });
+    console.log(ballRespX)
 }
 
 export default Shooter; 

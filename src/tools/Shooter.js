@@ -30,10 +30,11 @@ Shooter.prototype.crosshair = function(){
 Shooter.prototype.addBalls = function(){
     this.ball.classList.add('ball');
     this.ball.style.setProperty('transform', `translateY(-${this.cross.offsetHeight * 2}px)`);
-    this.gameScreen.appendChild(this.ball);
+    
 
     
     setInterval(()=>{
+        this.gameScreen.appendChild(this.ball);
         let ballRespX = Math.random();
         //Ball never will apear pose game screen
         if (ballRespX > 0.92) {
@@ -44,6 +45,7 @@ Shooter.prototype.addBalls = function(){
 
         this.ballMove(ballRespX)
     },1000)
+    this.hitBall();
 }
 //Move ball
 
@@ -65,4 +67,10 @@ Shooter.prototype.ballMove = function (ballRespX) {
     console.log(ballRespX)
 }
 
+//Method responsible for behavior of application when we try to shoot the ball
+Shooter.prototype.hitBall = function(){
+    this.ball.addEventListener('click', function(){
+        this.parentElement.removeChild(this);
+    });
+}
 export default Shooter; 

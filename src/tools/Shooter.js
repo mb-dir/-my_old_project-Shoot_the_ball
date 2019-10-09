@@ -23,6 +23,15 @@ Shooter.prototype.start = function(){
     });
 }
 
+//When the user clicks button 'stop'
+Shooter.prototype.stop = function (interval) {
+    this.btnStop.addEventListener('click', () => {
+        this.btnStart.disabled = false;
+        clearInterval(interval);
+        console.log(this.ball)
+    });
+}
+
 //Crosshair
 Shooter.prototype.crosshair = function(){
 
@@ -42,10 +51,7 @@ Shooter.prototype.addBalls = function(){
     this.ball.style.setProperty('transform', `translateY(-${this.cross.offsetHeight * 2}px)`);
 
     const fallenBalls = document.querySelector('#fallenBalls');
-    
-
-    
-    setInterval(()=>{
+    const interval = setInterval(()=>{
         this.gameScreen.appendChild(this.ball);
         let ballRespX = Math.random();
         //Ball never will apear pose game screen
@@ -63,6 +69,8 @@ Shooter.prototype.addBalls = function(){
 
     },1000)
     this.hitBall();
+    this.stop(interval);
+
 }
 //Move ball
 
@@ -89,7 +97,7 @@ Shooter.prototype.hitBall = function(){
     const shootDownBalls = document.querySelector('#shootDownBalls');
 
     this.ball.addEventListener('click', ()=>{
-        this.ball.parentElement.removeChild(this.ball);
+        this.gameScreen.removeChild(this.ball);
         
         this.shootDownBalls +=1;
         shootDownBalls.innerHTML = this.shootDownBalls;

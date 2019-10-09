@@ -3,7 +3,6 @@ const Shooter = function(){
     this.ball = document.createElement('div');
     this.btnStart = document.querySelector('#start');
     this.btnStop = document.querySelector('#stop');
-    this.score = document.querySelector('#score');
     this.cross = document.querySelector('.crosshair');
     this.fallenBalls = 0;
     this.shootDownBalls = 0;

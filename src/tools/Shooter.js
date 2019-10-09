@@ -31,6 +31,8 @@ Shooter.prototype.crosshair = function(){
 Shooter.prototype.addBalls = function(){
     this.ball.classList.add('ball');
     this.ball.style.setProperty('transform', `translateY(-${this.cross.offsetHeight * 2}px)`);
+
+    const fallenBalls = document.querySelector('#fallenBalls');
     
 
     
@@ -46,7 +48,10 @@ Shooter.prototype.addBalls = function(){
         
         this.ballMove(ballRespX)
         this.fallenBalls += 1;
-        console.log(this.fallenBalls)
+        
+        //After every 'resp' of ball cout fallenBalls+=1
+        fallenBalls.innerHTML = this.fallenBalls;
+
     },1000)
     this.hitBall();
 }
@@ -71,11 +76,14 @@ Shooter.prototype.ballMove = function (ballRespX) {
 
 //Method responsible for behavior of application when we try to shoot the ball
 Shooter.prototype.hitBall = function(){
+
+    const shootDownBalls = document.querySelector('#shootDownBalls');
+
     this.ball.addEventListener('click', ()=>{
         this.ball.parentElement.removeChild(this.ball);
         
         this.shootDownBalls +=1;
-        console.log(this.shootDownBalls)
+        shootDownBalls.innerHTML = this.shootDownBalls;
     });
 }
 export default Shooter; 

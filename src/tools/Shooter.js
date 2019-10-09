@@ -18,6 +18,7 @@ Shooter.prototype.init = function(){
 //When the user clicks button 'start'
 Shooter.prototype.start = function(){
     this.btnStart.addEventListener('click', ()=>{
+        this.btnStart.disabled = true;
         this.addBalls();
     });
 }

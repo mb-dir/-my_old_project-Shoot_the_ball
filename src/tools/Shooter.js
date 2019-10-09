@@ -1,8 +1,8 @@
 const Shooter = function(){
     this.gameScreen = document.querySelector('.game-screen');
     this.ball = document.createElement('div');
-    this.btnStart = document.querySelector('#start');
-    this.btnStop = document.querySelector('#stop');
+    this.btnStart = document.querySelector('.menu__btn--start');
+    this.btnStop = document.querySelector('.menu__btn--stop');
     this.cross = document.querySelector('.crosshair');
     this.fallenBalls = 0;
     this.shootDownBalls = 0;
@@ -11,7 +11,15 @@ const Shooter = function(){
 }
 Shooter.prototype.init = function(){
     this.crosshair();
-    this.addBalls();
+    this.start();
+}
+
+
+//When the user clicks button 'start'
+Shooter.prototype.start = function(){
+    this.btnStart.addEventListener('click', ()=>{
+        this.addBalls();
+    });
 }
 
 //Crosshair

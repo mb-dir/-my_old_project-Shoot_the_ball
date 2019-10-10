@@ -12,6 +12,7 @@ const Shooter = function(){
 Shooter.prototype.init = function(){
     this.crosshair();
     this.start();
+
 }
 
 
@@ -19,6 +20,7 @@ Shooter.prototype.init = function(){
 Shooter.prototype.start = function(){
     this.btnStart.addEventListener('click', ()=>{
         this.btnStart.disabled = true;
+        this.btnStop.disabled = false;
         this.addBalls();
     });
 }
@@ -27,8 +29,10 @@ Shooter.prototype.start = function(){
 Shooter.prototype.stop = function (interval) {
     this.btnStop.addEventListener('click', () => {
         this.btnStart.disabled = false;
+        this.btnStop.disabled = true;
         clearInterval(interval);
-        console.log(this.ball)
+        this.ball.style.setProperty('transform', 'translateY(-180px)')
+
     });
 }
 
@@ -47,29 +51,52 @@ Shooter.prototype.crosshair = function(){
 //Add moving balls
 
 Shooter.prototype.addBalls = function(){
-    this.ball.classList.add('ball');
-    this.ball.style.setProperty('transform', `translateY(-${this.cross.offsetHeight * 2}px)`);
+    if(this.ball.classList.contains('ball') === false){
+        this.ball.classList.add('ball');
+        this.ball.style.setProperty('transform', `translateY(-${this.cross.offsetHeight * 2}px)`);
 
-    const fallenBalls = document.querySelector('#fallenBalls');
-    const interval = setInterval(()=>{
-        this.gameScreen.appendChild(this.ball);
-        let ballRespX = Math.random();
-        //Ball never will apear pose game screen
-        if (ballRespX > 0.92) {
-            ballRespX -= 0.09;
-        }
-        this.ball.style.setProperty('transform', `translateX(${this.gameScreen.offsetWidth * ballRespX}px)`);
-        
-        
-        this.ballMove(ballRespX)
-        this.fallenBalls += 1;
-        
-        //After every 'resp' of ball cout fallenBalls+=1
-        fallenBalls.innerHTML = this.fallenBalls;
+        const fallenBalls = document.querySelector('#fallenBalls');
+        const interval = setInterval(() => {
+            this.gameScreen.appendChild(this.ball);
+            let ballRespX = Math.random();
+            //Ball never will apear pose game screen
+            if (ballRespX > 0.92) {
+                ballRespX -= 0.09;
+            }
+            this.ball.style.setProperty('transform', `translateX(${this.gameScreen.offsetWidth * ballRespX}px)`);
 
-    },1000)
-    this.hitBall();
-    this.stop(interval);
+
+            this.ballMove(ballRespX)
+            this.fallenBalls += 1;
+
+            //After every 'resp' of ball cout fallenBalls+=1
+            fallenBalls.innerHTML = this.fallenBalls;
+
+        }, 1000)
+        this.hitBall();
+        this.stop(interval);
+    }else{
+        const fallenBalls = document.querySelector('#fallenBalls');
+        const interval = setInterval(() => {
+            this.gameScreen.appendChild(this.ball);
+            let ballRespX = Math.random();
+            //Ball never will apear pose game screen
+            if (ballRespX > 0.92) {
+                ballRespX -= 0.09;
+            }
+            this.ball.style.setProperty('transform', `translateX(${this.gameScreen.offsetWidth * ballRespX}px)`);
+
+
+            this.ballMove(ballRespX)
+            this.fallenBalls += 1;
+
+            //After every 'resp' of ball cout fallenBalls+=1
+            fallenBalls.innerHTML = this.fallenBalls;
+
+        }, 1000)
+        this.stop(interval);
+    }
+    
 
 }
 //Move ball
@@ -97,8 +124,7 @@ Shooter.prototype.hitBall = function(){
     const shootDownBalls = document.querySelector('#shootDownBalls');
 
     this.ball.addEventListener('click', ()=>{
-        this.gameScreen.removeChild(this.ball);
-        
+        this.gameScreen.removeChild(this.ball)
         this.shootDownBalls +=1;
         shootDownBalls.innerHTML = this.shootDownBalls;
     });

@@ -201,6 +201,11 @@ body, html {
   border-radius: 50%;
   z-index: -1; }
 
+@media (min-width: 1024px) {
+  .ball {
+    width: 90px;
+    height: 90px; } }
+
 .crosshair {
   display: none; }
 

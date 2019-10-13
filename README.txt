@@ -1,1 +1,0 @@
-It's small and simply game where you have to 'kill' a ball

@@ -1,20 +1,28 @@
 .crosshair{
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 5px #0984e3 solid;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 999999;
-    pointer-events: none;
-    &::before{
-        content: '';
-        display: block;
-        width: 15px;
-        height: 15px;
-        background: #0984e3;
+    display: none;
+}
+
+
+@media(min-width: 1024px){
+    .crosshair {
+        width: 80px;
+        height: 80px;
         border-radius: 50%;
+        border: 5px #0984e3 solid;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 999999;
+        pointer-events: none;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 15px;
+            height: 15px;
+            background: #0984e3;
+            border-radius: 50%;
+        }
     }
 }

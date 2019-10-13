@@ -1,8 +1,14 @@
 .game-screen{
-    width: 100%;
+    width: 90%;
     height: 80vh;
-    margin: $spacing 0;
+    margin: $spacing auto;
     border: 3px $primary-light-color solid;
     overflow: hidden;
     cursor: none;
+}
+
+@media(min-width: 1024px){
+    .game-screen{
+        width: 100%;
+    }
 }

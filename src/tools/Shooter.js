@@ -52,10 +52,10 @@ Shooter.prototype.addBalls = function(){
 
         this.ballAddingInterval()
         this.hitBall();
-        this.stop(interval);
+        this.stop(this.interval);
     }else{
         this.ballAddingInterval()
-        this.stop(interval);
+        this.stop(this.interval);
     }
     
 
@@ -81,7 +81,7 @@ Shooter.prototype.ballMove = function (ballRespX) {
 //Method responsible for interval which adds ball
 Shooter.prototype.ballAddingInterval = function(){
     const fallenBalls = document.querySelector('#fallenBalls');
-    const interval = setInterval(() => {
+    this.interval = setInterval(() => {
         this.gameScreen.appendChild(this.ball);
         let ballRespX = Math.random();
         //Ball never will apear pose game screen
